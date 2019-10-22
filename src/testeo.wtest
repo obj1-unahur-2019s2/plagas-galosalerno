@@ -1,0 +1,37 @@
+import plagas.*
+import Elementos.*
+
+
+describe "testeo" {
+
+		
+		var plagaDeCucarachas = new Cucarachas(pesoPromedio=10,poblacion=50)
+		var perrito = new Mascota(nivelDeSalud=250)
+		var huertita = new Huerta(capacidadDeProduccion=10)
+		var plagaDeCucarachas2 = new Cucarachas(pesoPromedio=8,poblacion=160)
+		var plagaDeGarrapatas = new Garrapata(poblacion=20)
+		var casa = new Hogar()
+		
+
+
+		test"plaga ataca perrito"{
+			
+			plagaDeCucarachas.atacar(perrito)
+			assert.equals(225,perrito.nivelDeSalud())
+			assert.equals(12,plagaDeCucarachas.pesoPromedio())
+		}
+		test "plaga ataca huerta"{
+			
+			plagaDeCucarachas2.atacar(huertita)
+			assert.equals(2,huertita.capacidadDeProduccion())
+			assert.equals(10,plagaDeCucarachas2.pesoPromedio())
+			
+		}
+		test "plaga ataca hogar"{
+			plagaDeGarrapatas.atacar(casa)
+			assert.equals(40,casa.nivelDeMugre())
+			assert.equals(24,plagaDeGarrapatas.poblacion())
+			
+		}
+
+}		
